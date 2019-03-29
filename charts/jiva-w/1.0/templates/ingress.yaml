@@ -21,7 +21,6 @@ spec:
       - backend:
           serviceName: datasync
           servicePort: 8080
-        path: /datasync.html
   {{- end }}
   {{- if .Values.loadBalancer.esocial.enabled }}
   - host: {{ .Release.Namespace }}-esocial{{ .Values.loadBalancer.dns }}
@@ -30,7 +29,6 @@ spec:
       - backend:
           serviceName: esocial
           servicePort: 8778
-        path: /index.html
   {{- end }}
 status:
   loadBalancer: {}
