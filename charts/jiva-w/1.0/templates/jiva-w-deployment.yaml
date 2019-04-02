@@ -81,7 +81,6 @@ spec:
           timeoutSeconds: 60
         ports:
         - containerPort: 8080
-          hostPort: 9990
           protocol: TCP
         readinessProbe:
           failureThreshold: 3
