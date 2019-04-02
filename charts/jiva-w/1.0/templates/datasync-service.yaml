@@ -7,7 +7,8 @@ metadata:
     io.kompose.service: datasync
 spec:
   ports:
-  - name: "8080"
+  - name: "9980"
+    port: 9980
     protocol: TCP
     targetPort: 8080
   selector:

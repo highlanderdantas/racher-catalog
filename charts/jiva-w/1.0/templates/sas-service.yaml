@@ -8,6 +8,8 @@ spec:
   ports:
   - name: "10050"
     port: 10050
+    protocol: TCP
+    targetPort: 10050
   selector:
     io.kompose.service: sas
 status:

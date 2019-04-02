@@ -6,6 +6,11 @@ metadata:
   labels:
     io.kompose.service: datasync
 spec:
+  ports:
+  - name: "9980"
+    port: 9980
+    protocol: TCP
+    targetPort: 8080
   selector:
     io.kompose.service: datasync
 status:

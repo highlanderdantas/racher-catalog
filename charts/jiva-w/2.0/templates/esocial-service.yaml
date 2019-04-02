@@ -6,6 +6,11 @@ metadata:
   labels:
     io.kompose.service: esocial
 spec:
+  ports:
+  - name: "9970"
+    port: 9970
+    protocol: TCP
+    targetPort: 8778
   selector:
     io.kompose.service: esocial
 status:
