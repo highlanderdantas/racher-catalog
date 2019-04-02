@@ -40,17 +40,17 @@ spec:
         - name: IP_BD_JIVAW
           valueFrom:
             secretKeyRef:
-              name: sas
+              name: jiva-w
               key: banco-ip
         - name: SENHA_BD_JIVAW
           valueFrom:
             secretKeyRef:
-              name: sas
+              name: jiva-w
               key: banco-password
         - name: USUARIO_BD_JIVAW
           valueFrom:
             secretKeyRef:
-              name: sas
+              name: jiva-w
               key: banco-user
         livenessProbe:
           failureThreshold: 2
