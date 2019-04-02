@@ -15,7 +15,7 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 200Mi
+      storage: 3Gi
   volumeMode: Filesystem
   volumeName: {{ .Values.imageRepository.volume }}
 status: {}

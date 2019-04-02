@@ -31,18 +31,27 @@ spec:
         env: 
         - name: HASDELPHI
           value: "{{ .Values.sasdelphi.enabled }}"
-        - name: IP_BD_JIVAW
-          value: "{{ .Values.banco.ip }}"
         - name: PORTA_BD_JIVAW
           value: "{{ .Values.banco.porta }}"
-        - name: SENHA_BD_JIVAW
-          value: "{{ .Values.banco.senha }}"
         - name: SID_BD_JIVAW
           value: "{{ .Values.banco.sid }}"
         - name: TIPO_BD
           value: "{{ .Values.banco.tipo }}"
+        - name: IP_BD_JIVAW
+          valueFrom:
+            secretKeyRef:
+              name: sas
+              key: banco-ip
+        - name: SENHA_BD_JIVAW
+          valueFrom:
+            secretKeyRef:
+              name: sas
+              key: banco-password
         - name: USUARIO_BD_JIVAW
-          value: "{{ .Values.banco.usuario }}"
+          valueFrom:
+            secretKeyRef:
+              name: sas
+              key: banco-user
         livenessProbe:
           failureThreshold: 2
           initialDelaySeconds: 30
@@ -67,7 +76,6 @@ spec:
           name: volume-claim
           subPath: highlander/SAS/
       dnsPolicy: ClusterFirst
-      hostNetwork: true
       restartPolicy: Always
       securityContext: {}
       terminationGracePeriodSeconds: 0

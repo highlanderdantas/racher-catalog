@@ -67,7 +67,6 @@ spec:
           name: volume-claim
           subPath: highlander/SAS/
       dnsPolicy: ClusterFirst
-      hostNetwork: true
       restartPolicy: Always
       securityContext: {}
       terminationGracePeriodSeconds: 0
