@@ -43,8 +43,6 @@ spec:
           value: jiva-w
         - name: CLIENTE
           value: "{{ .Release.Namespace }}"
-        - name: IP_BD_JIVAW
-          value: "{{ .Values.banco.ip }}"
         - name: MEMORIA_JBOSS
           value: "{{ .Values.memoria.jivaw.jboss }}"
         {{-  if .Values.pacote.versao }}
@@ -58,17 +56,22 @@ spec:
           value: "/home/mgeweb/wildfly_producao/standalone/log/server.log"
         - name: PORTA_BD_JIVAW
           value: "{{ .Values.banco.porta }}"
+        - name: TIPO_BD
+          value: "{{ .Values.banco.tipo }}"
+        - name: TIPO_SERVIDOR
+          value: "WILDFLY"
+        - name: SID_BD_JIVAW
+          value: "{{ .Values.banco.sid }}"
+        - name: IP_BD_JIVAW
+          valueFrom:
+            secretKeyRef:
+              name: jiva-w
+              key: banco-ip
         - name: SENHA_BD_JIVAW
           valueFrom:
             secretKeyRef:
               name: jiva-w
               key: banco-password
-        - name: SID_BD_JIVAW
-          value: "{{ .Values.banco.sid }}"
-        - name: TIPO_BD
-          value: "{{ .Values.banco.tipo }}"
-        - name: TIPO_SERVIDOR
-          value: "WILDFLY"
         - name: USUARIO_BD_JIVAW
           valueFrom:
             secretKeyRef:
