@@ -1,6 +1,6 @@
 # Imagens Hub e Versões
 imageRepository:
-  volume: "volume-claim"
+  storageClass: "volume-claim"
   jivaw:
     fullName: "jiva-w"
     image: "highlanderdantas/snk-jiva-w"

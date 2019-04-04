@@ -85,10 +85,10 @@ questions:
   default: "1024"
   required: true
   group: "Configurando Memoria da Aplicação"
-- variable: imageRepository.volume
-  label: "Nome do volume do cluster"
-  description: "Nome do volume do cluster"
-  type: string
+- variable: imageRepository.storageClass
+  label: "StorageClass para o Jiva-W"
+  description: "StorageClass para o Jiva-W"
+  type: storageclass
   default: ""
   required: true
   group: "Configurando Memoria da Aplicação"

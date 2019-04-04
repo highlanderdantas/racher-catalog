@@ -13,9 +13,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
+  storageClassName: "{{ .Values.imageRepository.storageClass }}"
   resources:
     requests:
-      storage: 200Mi
-  volumeMode: Filesystem
-  volumeName: {{ .Values.imageRepository.volume }}
-status: {}
+      storage: 3Gi
