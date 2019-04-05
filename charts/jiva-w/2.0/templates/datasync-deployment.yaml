@@ -37,34 +37,34 @@ spec:
         volumeMounts:
         - mountPath: /home/mgeweb/DataSync/conf
           name: volume-claim
-          subPath: highlander/datasync/conf
+          subPath: {{ .Release.Namespace }}/datasync/conf
         - mountPath: /home/mgeweb/DataSync/email
           name: volume-claim
-          subPath: highlander/datasync/email
+          subPath: {{ .Release.Namespace }}/datasync/email
         - mountPath: /home/mgeweb/DataSync/exported
           name: volume-claim
-          subPath: highlander/datasync/exported
+          subPath: {{ .Release.Namespace }}/datasync/exported
         - mountPath: /home/mgeweb/DataSync/filetransfer_home
           name: volume-claim
-          subPath: highlander/datasync/filetransfer_home
+          subPath: {{ .Release.Namespace }}/datasync/filetransfer_home
         - mountPath: /home/mgeweb/DataSync/log
           name: volume-claim
-          subPath: highlander/datasync/log
+          subPath: {{ .Release.Namespace }}/datasync/log
         - mountPath: /home/mgeweb/DataSync/processed
           name: volume-claim
-          subPath: highlander/datasync/processed
+          subPath: {{ .Release.Namespace }}/datasync/processed
         - mountPath: /home/mgeweb/DataSync/sync
           name: volume-claim
-          subPath: highlander/datasync/sync
+          subPath: {{ .Release.Namespace }}/datasync/sync
         - mountPath: /home/mgeweb/DataSync/tracking
           name: volume-claim
-          subPath: highlander/datasync/tracking
+          subPath: {{ .Release.Namespace }}/datasync/tracking
         - mountPath: /home/mgeweb/DataSync/work
           name: volume-claim
-          subPath: highlander/datasync/work
+          subPath: {{ .Release.Namespace }}/datasync/work
         - mountPath: /home/mgeweb/pacotes-datasync/
           name: volume-claim
-          subPath: highlander/datasync/pacotes/datasync
+          subPath: {{ .Release.Namespace }}/datasync/pacotes/datasync
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       securityContext: {}

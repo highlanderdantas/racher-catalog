@@ -1,0 +1,70 @@
+# Imagens Hub e Versões
+imageRepository:
+  volume: "volume-claim"
+  sankhyaw:
+    fullName: "sankhya-w"
+    image: "highlanderdantas/snk-jiva-w"
+    imageTag: "v1.4"
+  sas:
+    fullName: "sas" 
+    image: "highlanderdantas/sas"
+    imageTag: "v1.4"
+  datasync:
+    fullName: "datasync" 
+    image: "highlanderdantas/datasync"
+    imageTag: "v1.4"
+  esocial:
+    fullName: "esocial" 
+    image: "highlanderdantas/esocial"
+    imageTag: "v1.4"
+
+annotations: {}
+
+## Pacote para Instalação
+pacote:
+  versao: "jiva-w_3.29b91.pkg"
+  versionNew: ""
+
+## Dados do Banco de Dados
+banco:
+  tipo: "ORACLE"
+  ip: ""
+  porta: "1521"
+  sid: "ORCL"
+  usuario: "System"
+  senha: "tecsis"
+
+## Memoria Jivaw
+memoria:
+  sankhyaw:
+    jboss: "-Xms512m -Xmx1304m"
+    maximo: "1536"
+    media: "1024"
+
+## Possui SAs
+sasdelphi:
+  enabled: false
+
+## Possui Sankhyaw
+sankhyaw:
+  enabled: true
+
+## Possui Datasync
+datasync:
+  enabled: false
+
+## Possui Esocial
+esocial:
+  enabled: false
+
+
+## Configurações de url de acesso
+loadBalancer:
+  dns: .dev.jiva.com.br
+  sankhyaw:
+    enabled: false
+  datasync:
+    enabled: false
+  esocial:
+    enabled: false 
+

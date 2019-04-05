@@ -65,7 +65,7 @@ spec:
           subPath: pacotes/sas
         - mountPath: /opt/SAS/licenca
           name: volume-claim
-          subPath: highlander/SAS/
+          subPath: {{ .Release.Namespace }}/SAS/
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       securityContext: {}

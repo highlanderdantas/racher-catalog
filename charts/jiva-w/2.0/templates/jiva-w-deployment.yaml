@@ -114,19 +114,19 @@ spec:
           subPath: pacotes/repositorio/
         - mountPath: /home/mgeweb/wildfly_producao/standalone/log
           name: volume-claim
-          subPath: highlander/logs/
+          subPath: {{ .Release.Namespace }}/logs/
         - mountPath: /home/mgeweb/SanNFe
           name: volume-claim
-          subPath: highlander/SanNFe/
+          subPath: {{ .Release.Namespace }}/SanNFe/
         - mountPath: /home/mgeweb/SankhyaW/Anexos
           name: volume-claim
-          subPath: highlander/Anexos/
+          subPath: {{ .Release.Namespace }}/Anexos/
         - mountPath: /home/mgeweb/pacotes-sannfe/
           name: volume-claim
-          subPath: highlander/pacotes/sannfe/
+          subPath: {{ .Release.Namespace }}/pacotes/sannfe/
         - mountPath: /home/mgeweb/sankhyaw-dpm/pkgs
           name: volume-claim
-          subPath: highlander/jiva-w/
+          subPath: {{ .Release.Namespace }}/jiva-w/
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       securityContext: {}

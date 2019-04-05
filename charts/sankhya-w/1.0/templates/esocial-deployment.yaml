@@ -51,16 +51,16 @@ spec:
         volumeMounts:
         - mountPath: /home/mgeweb/sanesocial/conf
           name: volume-claim
-          subPath: {{ .Release.Namespace }}/sanesocial/conf
+          subPath: sanesocial/conf
         - mountPath: /home/mgeweb/sanesocial/certificados
           name: volume-claim
-          subPath: {{ .Release.Namespace }}/sanesocial/certificados
+          subPath: sanesocial/certificados
         - mountPath: /home/mgeweb/sanesocial/log
           name: volume-claim
-          subPath: {{ .Release.Namespace }}/sanesocial/log
+          subPath: sanesocial/log
         - mountPath: /home/mgeweb/sanesocial/properties
           name: volume-claim
-          subPath: {{ .Release.Namespace }}/sanesocial/properties
+          subPath: sanesocial/properties
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       securityContext: {}
