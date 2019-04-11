@@ -45,7 +45,7 @@ spec:
           value: "{{ .Release.Namespace }}"
         - name: MEMORIA_JBOSS
           value: "{{ .Values.memoria.jivaw.jboss }}"
-        {{-  if .Values.pacote.versao }}
+        {{ if not .Values.pacote.versionNew }}
         - name: PACOTE_JIVAW
           value: "{{ .Values.pacote.versao }}"
         {{- else }}

@@ -47,11 +47,11 @@ spec:
           value: "{{ .Values.banco.ip }}"
         - name: MEMORIA_JBOSS
           value: "{{ .Values.memoria.sankhyaw.jboss }}"
-        {{-  if .Values.pacote.versao }}
-        - name: PACOTE_SNKW
+        {{ if not .Values.pacote.versionNew }}
+        - name: PACOTE_JIVAW
           value: "{{ .Values.pacote.versao }}"
         {{- else }}
-        - name: PACOTE_SNKW
+        - name: PACOTE_JIVAW
           value: "{{ .Values.pacote.versionNew }}"
         {{- end }}
         - name: PATH_LOG
