@@ -48,10 +48,10 @@ spec:
         - name: MEMORIA_JBOSS
           value: "{{ .Values.memoria.sankhyaw.jboss }}"
         {{ if not .Values.pacote.versionNew }}
-        - name: PACOTE_JIVAW
+        - name: PACOTE_SNKW
           value: "{{ .Values.pacote.versao }}"
         {{- else }}
-        - name: PACOTE_JIVAW
+        - name: PACOTE_SNKW
           value: "{{ .Values.pacote.versionNew }}"
         {{- end }}
         - name: PATH_LOG
