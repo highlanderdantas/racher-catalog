@@ -17,5 +17,3 @@ spec:
   resources:
     requests:
       storage: 3Gi
-  volumeName: JVTST-EBS{{ .Release.Namespace }}
-  volumeMode: ext4
