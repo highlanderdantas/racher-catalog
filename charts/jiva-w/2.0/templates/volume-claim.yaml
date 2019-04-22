@@ -12,8 +12,9 @@ metadata:
     io.kompose.service: volume-claim
 spec:
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   storageClassName: "{{ .Values.imageRepository.storageClass }}"
   resources:
     requests:
       storage: 3Gi
+  volumeName: JVTST-EBS{{ .Release.Namespace }}
