@@ -1,0 +1,36 @@
+{{- if ( or .Values.loadBalancer.jivaw.enabled .Values.loadBalancer.esocial.enabled  .Values.loadBalancer.datasync.enabled ) }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  generation: 1
+  name: ingress
+spec:
+  rules:
+  {{- if .Values.loadBalancer.jivaw.enabled }}
+  - host: {{ .Release.Namespace }}-jivaw{{ .Values.loadBalancer.dns }}
+    http:
+      paths:
+      - backend:
+          serviceName: jiva-w
+          servicePort: 8080
+        path: /mge
+  {{- end }}
+  {{- if .Values.loadBalancer.datasync.enabled }}
+  - host: {{ .Release.Namespace }}-datasync{{ .Values.loadBalancer.dns }}
+    http:
+      paths:
+      - backend:
+          serviceName: datasync
+          servicePort: 8080
+  {{- end }}
+  {{- if .Values.loadBalancer.esocial.enabled }}
+  - host: {{ .Release.Namespace }}-esocial{{ .Values.loadBalancer.dns }}
+    http:
+      paths:
+      - backend:
+          serviceName: esocial
+          servicePort: 8778
+  {{- end }}
+status:
+  loadBalancer: {}
+{{- end }}

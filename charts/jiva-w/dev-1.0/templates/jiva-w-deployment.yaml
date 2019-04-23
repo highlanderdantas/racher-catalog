@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: sankhya-w
+  name: jiva-w
   generation: 1
   labels:
-    io.kompose.service: sankhya-w
+    io.kompose.service: jiva-w
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      io.kompose.service: sankhya-w
+      io.kompose.service: jiva-w
   strategy:
     type: Recreate
   template:
@@ -21,7 +21,7 @@ spec:
         {{ $key }}: {{ $value }}
       {{- end }}
       labels:
-        io.kompose.service: sankhya-w
+        io.kompose.service: jiva-w
     spec:
       containers:
       - args:
@@ -40,37 +40,37 @@ spec:
         - -c
         env:
         - name: APP
-          value: sankhya-w
+          value: jiva-w
         - name: CLIENTE
           value: "{{ .Release.Namespace }}"
-        - name: IP_BD_SNKW
+        - name: IP_BD_JIVAW
           value: "{{ .Values.banco.ip }}"
         - name: MEMORIA_JBOSS
-          value: "{{ .Values.memoria.sankhyaw.jboss }}"
+          value: "{{ .Values.memoria.jivaw.jboss }}"
         {{ if not .Values.pacote.versionNew }}
-        - name: PACOTE_SNKW
+        - name: PACOTE_JIVAW
           value: "{{ .Values.pacote.versao }}"
         {{- else }}
-        - name: PACOTE_SNKW
+        - name: PACOTE_JIVAW
           value: "{{ .Values.pacote.versionNew }}"
         {{- end }}
         - name: PATH_LOG
           value: "/home/mgeweb/wildfly_producao/standalone/log/server.log"
-        - name: PORTA_BD_SNKW
+        - name: PORTA_BD_JIVAW
           value: "{{ .Values.banco.porta }}"
-        - name: SENHA_BD_SNKW
+        - name: SENHA_BD_JIVAW
           value: "{{ .Values.banco.senha }}"
-        - name: SID_BD_SNKW
+        - name: SID_BD_JIVAW
           value: "{{ .Values.banco.sid }}"
         - name: TIPO_BD
           value: "{{ .Values.banco.tipo }}"
         - name: TIPO_SERVIDOR
           value: "WILDFLY"
-        - name: USUARIO_BD_SNKW
+        - name: USUARIO_BD_JIVAW
           value: "{{ .Values.banco.usuario }}"
-        image: {{  .Values.imageRepository.sankhyaw.image }}:{{  .Values.imageRepository.sankhyaw.imageTag }}
+        image: {{  .Values.imageRepository.jivaw.image }}:{{  .Values.imageRepository.jivaw.imageTag }}
         imagePullPolicy: Always
-        name: sankhya-w
+        name: jiva-w
         livenessProbe:
           failureThreshold: 3
           initialDelaySeconds: 100
@@ -92,9 +92,9 @@ spec:
           timeoutSeconds: 60
         resources:
           limits:
-            memory: {{ .Values.memoria.sankhyaw.maximo }}Mi
+            memory: {{ .Values.memoria.jivaw.maximo }}Mi
           requests:
-            memory: {{ .Values.memoria.sankhyaw.media }}Mi
+            memory: {{ .Values.memoria.jivaw.media }}Mi
         securityContext:
           allowPrivilegeEscalation: true
           capabilities: {}
@@ -117,7 +117,7 @@ spec:
           subPath: {{ .Release.Namespace }}/pacotes/sannfe/
         - mountPath: /home/mgeweb/sankhyaw-dpm/pkgs
           name: volume-claim
-          subPath: {{ .Release.Namespace }}/sankhya-w/
+          subPath: {{ .Release.Namespace }}/jiva-w/
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       securityContext: {}

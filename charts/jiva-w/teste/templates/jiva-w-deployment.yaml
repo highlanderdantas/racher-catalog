@@ -43,8 +43,6 @@ spec:
           value: jiva-w
         - name: CLIENTE
           value: "{{ .Release.Namespace }}"
-        - name: IP_BD_JIVAW
-          value: "{{ .Values.banco.ip }}"
         - name: MEMORIA_JBOSS
           value: "{{ .Values.memoria.jivaw.jboss }}"
         {{ if not .Values.pacote.versionNew }}
@@ -58,16 +56,27 @@ spec:
           value: "/home/mgeweb/wildfly_producao/standalone/log/server.log"
         - name: PORTA_BD_JIVAW
           value: "{{ .Values.banco.porta }}"
-        - name: SENHA_BD_JIVAW
-          value: "{{ .Values.banco.senha }}"
-        - name: SID_BD_JIVAW
-          value: "{{ .Values.banco.sid }}"
         - name: TIPO_BD
           value: "{{ .Values.banco.tipo }}"
         - name: TIPO_SERVIDOR
           value: "WILDFLY"
+        - name: SID_BD_JIVAW
+          value: "{{ .Values.banco.sid }}"
+        - name: IP_BD_JIVAW
+          valueFrom:
+            secretKeyRef:
+              name: jiva-w
+              key: banco-ip
+        - name: SENHA_BD_JIVAW
+          valueFrom:
+            secretKeyRef:
+              name: jiva-w
+              key: banco-password
         - name: USUARIO_BD_JIVAW
-          value: "{{ .Values.banco.usuario }}"
+          valueFrom:
+            secretKeyRef:
+              name: jiva-w
+              key: banco-user 
         image: {{  .Values.imageRepository.jivaw.image }}:{{  .Values.imageRepository.jivaw.imageTag }}
         imagePullPolicy: Always
         name: jiva-w
@@ -102,7 +111,7 @@ spec:
         volumeMounts:
         - mountPath: /home/mgeweb/repositorio
           name: volume-claim
-          subPath: pacotes/repositorio/
+          subPath: {{ .Release.Namespace }}/repositorio/
         - mountPath: /home/mgeweb/wildfly_producao/standalone/log
           name: volume-claim
           subPath: {{ .Release.Namespace }}/logs/

@@ -111,7 +111,7 @@ spec:
         volumeMounts:
         - mountPath: /home/mgeweb/repositorio
           name: volume-claim
-          subPath: pacotes/repositorio/
+          subPath: {{ .Release.Namespace }}/repositorio/
         - mountPath: /home/mgeweb/wildfly_producao/standalone/log
           name: volume-claim
           subPath: {{ .Release.Namespace }}/logs/
