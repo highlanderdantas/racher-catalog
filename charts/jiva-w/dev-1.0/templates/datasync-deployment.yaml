@@ -47,9 +47,6 @@ spec:
         - mountPath: /home/mgeweb/DataSync/filetransfer_home
           name: volume-claim
           subPath: {{ .Release.Namespace }}/datasync/filetransfer_home
-        - mountPath: /home/mgeweb/DataSync/log
-          name: volume-claim
-          subPath: {{ .Release.Namespace }}/datasync/log
         - mountPath: /home/mgeweb/DataSync/processed
           name: volume-claim
           subPath: {{ .Release.Namespace }}/datasync/processed

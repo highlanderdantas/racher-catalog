@@ -103,9 +103,6 @@ spec:
         - mountPath: /home/mgeweb/repositorio
           name: volume-claim
           subPath: {{ .Release.Namespace }}/repositorio/
-        - mountPath: /home/mgeweb/wildfly_producao/standalone/log
-          name: volume-claim
-          subPath: {{ .Release.Namespace }}/logs/
         - mountPath: /home/mgeweb/SanNFe
           name: volume-claim
           subPath: {{ .Release.Namespace }}/SanNFe/

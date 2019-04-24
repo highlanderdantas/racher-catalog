@@ -55,9 +55,6 @@ spec:
         - mountPath: /home/mgeweb/sanesocial/certificados
           name: volume-claim
           subPath: sanesocial/certificados
-        - mountPath: /home/mgeweb/sanesocial/log
-          name: volume-claim
-          subPath: sanesocial/log
         - mountPath: /home/mgeweb/sanesocial/properties
           name: volume-claim
           subPath: sanesocial/properties
