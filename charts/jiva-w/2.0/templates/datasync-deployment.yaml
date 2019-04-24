@@ -35,6 +35,9 @@ spec:
           capabilities: {}
           privileged: true
         volumeMounts:
+        - mountPath: /home/mgeweb/DataSync/log
+          name: volume-claim
+          subPath: {{ .Release.Namespace }}/datasync/log
         - mountPath: /home/mgeweb/DataSync/conf
           name: volume-claim
           subPath: {{ .Release.Namespace }}/datasync/conf
