@@ -12,8 +12,8 @@ metadata:
     io.kompose.service: nfs-volume-claim
 spec:
   accessModes:
-  - ReadWriteMany
-  storageClassName: "{{ .Values.storageClass.defaultClass }}"
+  - ReadWriteOnce
+  storageClassName: "{{ .Values.persistence.storageClass }}"
   resources:
     requests:
       storage: 20Gi

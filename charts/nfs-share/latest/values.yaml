@@ -35,7 +35,7 @@ persistence:
   ##
   # storageClass: "-"
 
-  accessMode: ReadWriteMany
+  accessMode: ReadWriteOnce
   size: 1Gi
   hostPath: /srv
 
