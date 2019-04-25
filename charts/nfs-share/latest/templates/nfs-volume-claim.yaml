@@ -13,7 +13,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
-  storageClassName: "{{ .Values.persistence.storageClass }}"
+  storageClassName: {{ .Values.persistence.storageClass | quote }}
   resources:
     requests:
-      storage: 20Gi
+      storage: {{ .Values.persistence.size | quote }}
