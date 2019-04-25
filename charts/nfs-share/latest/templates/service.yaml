@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "nfs-provisioner.fullname" . }}
+  name: {{ template "nfs-share".fullname" . }}
   labels:
-    app: {{ template "nfs-provisioner.name" . }}
-    chart: {{ template "nfs-provisioner.chart" . }}
+    app: {{ template "nfs-share".name" . }}
+    chart: {{ template "nfs-share".chart" . }}
     heritage: {{ .Release.Service }}
     release: {{ .Release.Name }}
 spec:
@@ -43,5 +43,5 @@ spec:
 {{ toYaml .Values.service.externalIPs | indent 4 }}
 {{- end }}
   selector:
-    app: {{ template "nfs-provisioner.name" . }}
+    app: {{ template "nfs-share".name" . }}
     release: {{ .Release.Name }}

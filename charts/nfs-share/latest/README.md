@@ -23,7 +23,7 @@ their default values.
 | Parameter                      | Description                                                                                                     | Default                                                  |
 |:-------------------------------|:----------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
 | `imagePullSecrets`             | Specify image pull secrets                                                                                      | `nil` (does not add image pull secrets to deployed pods) |
-| `image.repository`             | The image repository to pull from                                                                               | `quay.io/kubernetes_incubator/nfs-provisioner`           |
+| `image.repository`             | The image repository to pull from                                                                               | `quay.io/kubernetes_incubator/nfs-share`           |
 | `image.tag`                    | The image tag to pull from                                                                                      | `v1.0.8`                                                 |
 | `image.pullPolicy`             | Image pull policy                                                                                               | `IfNotPresent`                                           |
 | `service.type`                 | service type                                                                                                    | `ClusterIP`                                              |
