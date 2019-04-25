@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "nfs-share.name" -}}
+{{- define "nfs-provisioner.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "nfs-share.fullname" -}}
+{{- define "nfs-provisioner.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
@@ -27,17 +27,17 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "nfs-share.chart" -}}
+{{- define "nfs-provisioner.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "nfs-share.provisionerName" -}}
+{{- define "nfs-provisioner.provisionerName" -}}
 {{- if .Values.storageClass.provisionerName -}}
 {{- printf .Values.storageClass.provisionerName -}}
 {{- else -}}
-cluster.local/{{ template "nfs-share.fullname" . -}}
+cluster.local/{{ template "nfs-provisioner.fullname" . -}}
 {{- end -}}
 {{- end -}}
