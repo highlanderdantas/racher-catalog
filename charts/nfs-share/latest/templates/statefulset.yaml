@@ -1,10 +1,10 @@
 apiVersion: apps/v1beta2
 kind: StatefulSet
 metadata:
-  name: {{ template "nfs-share".fullname" . }}
+  name: {{ template "nfs-share.fullname" . }}
   labels:
-    app: {{ template "nfs-share".name" . }}
-    chart: {{ template "nfs-share".chart" . }}
+    app: {{ template "nfs-share.name" . }}
+    chart: {{ template "nfs-share.chart" . }}
     heritage: {{ .Release.Service }}
     release: {{ .Release.Name }}
 spec:
@@ -12,14 +12,14 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "nfs-share".name" . }}
+      app: {{ template "nfs-share.name" . }}
       release: {{ .Release.Name }}
-  serviceName: {{ template "nfs-share".fullname" . }}
+  serviceName: {{ template "nfs-share.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ template "nfs-share".name" . }}
-        chart: {{ template "nfs-share".chart" . }}
+        app: {{ template "nfs-share.name" . }}
+        chart: {{ template "nfs-share.chart" . }}
         heritage: {{ .Release.Service }}
         release: {{ .Release.Name }}
     spec:
@@ -48,14 +48,14 @@ spec:
                 - DAC_READ_SEARCH
                 - SYS_RESOURCE
           args:
-            - "-provisioner={{ template "nfs-share".provisionerName" . }}"
+            - "-provisioner={{ template "nfs-share.provisionerName" . }}"
           env:
             - name: POD_IP
               valueFrom:
                 fieldRef:
                   fieldPath: status.podIP
             - name: SERVICE_NAME
-              value: {{ template "nfs-share".fullname" . }}
+              value: {{ template "nfs-share.fullname" . }}
             - name: POD_NAMESPACE
               valueFrom:
                 fieldRef:
