@@ -1,3 +1,7 @@
+categories:
+- jiva
+labels:
+  io.rancher.certified: partner
 questions:
 # Pacote Instalação
 - variable: pacote.versao

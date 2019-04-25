@@ -1,3 +1,7 @@
+categories:
+- sankhya
+labels:
+  io.rancher.certified: partner
 questions:
 # Pacote Instalação
 - variable: pacote.versao
