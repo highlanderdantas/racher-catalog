@@ -9,7 +9,7 @@ replicaCount: 1
 image:
   repository: fishchen/nfs-provisioner
   tag: v1.0.9
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 service:
   type: ClusterIP
