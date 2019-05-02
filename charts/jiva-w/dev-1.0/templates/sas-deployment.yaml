@@ -44,17 +44,17 @@ spec:
         - name: USUARIO_BD_JIVAW
           value: "{{ .Values.banco.usuario }}"
         livenessProbe:
-          failureThreshold: 2
+          failureThreshold: 3
           initialDelaySeconds: 30
-          periodSeconds: 6
+          periodSeconds: 30
           successThreshold: 1
           tcpSocket:
             port: 10050
           timeoutSeconds: 6
         readinessProbe:
-          failureThreshold: 2
+          failureThreshold: 3
           initialDelaySeconds: 30
-          periodSeconds: 6
+          periodSeconds: 30
           successThreshold: 1
           tcpSocket:
             port: 10050
